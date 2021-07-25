@@ -1,0 +1,14 @@
+
+
+.btn{
+    display: flex;
+    border: 0;
+    font-size: 3rem;
+    line-height: 1;
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+    background: #0081D5;
+    cursor: pointer;
+    width: 800px;
+    text-align: center;
+}

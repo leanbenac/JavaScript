@@ -1,6 +1,7 @@
 /* desafio */
 
-alert("¿Querés comprar una moto?");
+function elegitumoto(){
+    alert("¿Querés comprar una moto?");
 
 let dosRuedas = prompt ("Ingresa tu respuesta");
 
@@ -50,4 +51,5 @@ while(entrada != "ninguna" ){
             alert("Es mucha velocidad para vos.")
             break;
     }
+}
 }
