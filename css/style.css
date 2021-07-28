@@ -1,14 +1,28 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial, helvetica,sans-serif; 
+}
 
 .btn{
-    display: flex;
     border: 0;
-    font-size: 3rem;
+    font-size: 1.8rem;
     line-height: 1;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
     border-radius: 30px;
-    background: #0081D5;
+    background: #9d0208;
     cursor: pointer;
-    width: 800px;
-    text-align: center;
+    width: 100%;
+    justify-items: center;
+    margin-top: 100px;
+    color: azure;
+}
+
+.fondo-index{
+    background-color: black;
+    background:url(../img/ducatti.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
 }
