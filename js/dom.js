@@ -1,27 +1,29 @@
-/* desafio */
+//DOM
+
+const titulo = document.getElementById(tittle);
+tittle.innerHTML = "Click aqui!  Para elegir tu próxima moto."
+tittle.classList.add("btn");
+
+
+/* simulacion */
 
 function elegitumoto(){
-
-
 
     function Moto(marca, precio, cc, vel) {
         this.marca = marca;
         this.precio  = parseFloat (precio);
         this.cc = cc;
         this.vel = vel;
-        
         this.detalle = function(){ alert(" Marca: "+ this.marca +" Precio: "+ this.precio +" CC: "+ this.cc +" Vel: " +this.vel)}
+        
+        
     }
-    
-
 
     const moto1 = new Moto ("Honda", 200, "1200cc.","300km/h");
     const moto2 = new Moto ("Yamaha", 250, "1200cc.","400km/h");
     const moto3 = new Moto ("KTM", 210, "1100cc.","350km/h");
     const moto4 = new Moto ("Benelli", 190, "700","280km/h");
     const moto5 = new Moto ("Ducatti", 170, "800cc","290km/h");
-
-    
 
     alert("¿Querés comprar una moto?");
 
@@ -49,7 +51,7 @@ if (respuesta == "si"){
 
     switch (entrada) {
         case "moto1":
-            alert("Elegiste bien, alcanza una velocidad de 300km/h." );
+            alert("Elegiste bien, alcanza una velocidad de 300km/h.");
             break;
         case "moto2":
             alert("Elegiste bien, alcanza una velocidad de 400km/h.");
