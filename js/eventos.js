@@ -21,20 +21,23 @@ class Motos {
 
 const productos = [];
 
-const producto1 = new Motos("honda", 200, "1000cc", "300km/h")
+const producto1 = new Motos("ducatti", 200, "1000cc", "300km/h")
 productos.push (producto1);
 
-const producto2 = new Motos("yamaha", 250, "1200cc", "400km/h")
+const producto2 = new Motos("honda", 250, "1200cc", "400km/h")
 productos.push (producto2);
 
-const producto3 = new Motos("ktm", 210, "1100cc", "350km/h")
+const producto3 = new Motos("bmw", 210, "1100cc", "350km/h")
 productos.push (producto3);
 
-const producto4 = new Motos("benelli", 190, "700cc", "280km/h")
+const producto4 = new Motos("ktm", 190, "700cc", "280km/h")
 productos.push (producto4);
 
-const producto5 = new Motos("ducatti", 170, "800cc", "290km/h")
+const producto5 = new Motos("benelli", 170, "800cc", "290km/h")
 productos.push (producto5);
+
+const producto6 = new Motos("yamaha", 170, "800cc", "290km/h")
+productos.push (producto6);
 
 
 //DOM
@@ -140,6 +143,23 @@ function mostrarM6(){
 
 
 
+//Recorriendo Array de objetos para modificar HTML
+
+let marcas = document.getElementById("marcas");
+
+let btnMarcas = document.getElementById("btnMarcas");
+
+for (const Motos of productos){
+    let li = document.createElement("li");
+    li.innerHTML = Motos.marca;
+    marcas.appendChild(li);
+}
+
+btnMarcas.addEventListener("click", mostrarMarcas);
+
+function mostrarMarcas(){   
+    marcas.style.display="block";
+}
 
 
 
