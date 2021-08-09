@@ -39,6 +39,19 @@ productos.push (producto4);
 const producto5 = new Motos("ducatti", 170, "800cc", "290km/h")
 productos.push (producto5);
 
+
+const producto1 = { id: 2, producto: "Arroz" };
+const enJSON    = JSON.stringify(producto1);
+
+console.log(enJSON); // {"id":2,"producto":"Arroz"}
+console.log(typeof producto1); // object
+console.log(typeof enJSON);    // string
+
+localStorage.setItem("producto1", enJSON);
+// Se guarda {"id":2,"producto":"Arroz"}
+
+
+
 //itere el array con for...of para modificarlos a todos
 for (const producto of productos)
     producto.sumaIva();
@@ -46,6 +59,7 @@ for (const producto of productos)
     producto2.vender();
 
     console.log(productos);
+
 
 //metodo sort para ordenar de menor a mayor
 productos.sort((a,b) => {

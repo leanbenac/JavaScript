@@ -1,3 +1,46 @@
+class Motos {
+    constructor(marca, precio, cilindrada, velocidad) {
+        this.marca = marca.toUpperCase();
+        this.precio = parseFloat(precio);
+        this.cilindrada = cilindrada;
+        this.velocidad = velocidad;
+        this.vendido = false;
+    }
+    sumaIva() {
+        this.precio = this.precio * 1.21;
+    }
+    vender(){
+        this.vendido = true;
+    }
+    
+    detalle(){ 
+        console.log(" Marca: "+ this.marca +" Precio: "+ this.precio +" CC: "+ this.cc +" Vel: " +this.vel);
+    }
+
+}
+
+const productos = [];
+
+const producto1 = new Motos("honda", 200, "1000cc", "300km/h")
+productos.push (producto1);
+
+const producto2 = new Motos("yamaha", 250, "1200cc", "400km/h")
+productos.push (producto2);
+
+const producto3 = new Motos("ktm", 210, "1100cc", "350km/h")
+productos.push (producto3);
+
+const producto4 = new Motos("benelli", 190, "700cc", "280km/h")
+productos.push (producto4);
+
+const producto5 = new Motos("ducatti", 170, "800cc", "290km/h")
+productos.push (producto5);
+
+
+
+
+
+
 //DOM
 
 const titulo = document.getElementById(tittle);
@@ -5,25 +48,12 @@ tittle.innerHTML = "Click aqui!  Para elegir tu próxima moto."
 tittle.classList.add("btn");
 
 
-/* simulacion */
+
+
+
+/* constructor
 
 function elegitumoto(){
-
-    function Moto(marca, precio, cc, vel) {
-        this.marca = marca;
-        this.precio  = parseFloat (precio);
-        this.cc = cc;
-        this.vel = vel;
-        this.detalle = function(){ alert(" Marca: "+ this.marca +" Precio: "+ this.precio +" CC: "+ this.cc +" Vel: " +this.vel)}
-        
-        
-    }
-
-    const moto1 = new Moto ("Honda", 200, "1200cc.","300km/h");
-    const moto2 = new Moto ("Yamaha", 250, "1200cc.","400km/h");
-    const moto3 = new Moto ("KTM", 210, "1100cc.","350km/h");
-    const moto4 = new Moto ("Benelli", 190, "700","280km/h");
-    const moto5 = new Moto ("Ducatti", 170, "800cc","290km/h");
 
     alert("¿Querés comprar una moto?");
 
@@ -75,4 +105,4 @@ if (respuesta == "si"){
     }
 
 
-}
+}*/

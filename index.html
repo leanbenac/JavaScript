@@ -1,42 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href = "https://fonts.googleapis.com/css2? family = Zen + Dots & display = swap" rel = "hoja de estilo">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet"  type="text/css" href="css/style.css">
-    <title>JavaScript</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Carrito</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/custom.css">
+
 </head>
 
-<body class="fondo-index">
+<body><!--comienza header-->
+	<header id="header" class="header">
+		<div class="container">
+			<div class="row" >
+				<div class="four columns" id="frase" >
+					<h2 id="tittle">Shop</a></h2>
+				</div>
+				
+				<div class="two columns u-pull-right">
+					<ul>
+						<li class="submenu">
+							<img src="img/carrito1.png" id="img-carrito">
+							<div id="carrito">
+								<table id="lista-carrito" class="u-full-width">
+									<thead>
+										<tr>
+											<th>Imagen</th>
+											<th>Nombre</th>
+											<th>Precio</th>
+											<th>Cantidad</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+								<a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header><!--termina header-->
 
-    <header>
-        <h1>Sport Motorcicle</h1>
-    </header>
+	<main>
+		<div id="hero">
+			<div class="container">
+				<div class="row">
+					<div class="six columns">
+						<div class="contenido-hero">
+							<h2>Search ​your motorcycle</h2>
+							<form id="formulario">
+								<input type="text" class="u-full-width" id="buscador"
+									placeholder="Ingresa su marca">
+								<input class="submit-buscador" type="submit" value="Buscar">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<h1 class="four">Motorcycle shop</h1>
+		<div id="lista-productos" class="container">
+	
+			<div class="card"><!--card ducatti-->
+				<img src="img/ducatti.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="ducatti">
+					<h4>Ducatti</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
+					<a id="btnMoto1" class="u-full-width button-primary button input agregar-carrito" data-id="1">Ver caracteristicas</a>
+				</div>
 
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3">
-                    <ul class="lista"> 
+				<div class="info-card" id="ducattiCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar al carro</a>
+				</div>
+			</div> 
 
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                        <a id="tittle" class="btn" onclick="elegitumoto()">para elegir tu próxima moto.</a>
-                </div>  
-                <div class="col-xs-12 col-sm-12 col-md-3">
-                </div>           
-            </div>
-        </div>
-    </main>
+			<div class="card"><!--card honda-->
+				<img src="img/principal-honda-cbr-150R.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="honda">
+					<h4>Honda</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$18000 <span class="u-pull-right ">$12000</span></p>
+					<a id="btnMoto2" class="u-full-width button-primary button input agregar-carrito" data-id="2">Ver caracteristicas</a>
+				</div>
 
+				<div class="info-card" id="hondaCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar al carro</a>
+				</div>
+			</div>
+	
+			<div class="card"><!--card bmw-->
+				<img src="img/bmw.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="bmw">
+					<h4>BMW</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$25000 <span class="u-pull-right ">$18000</span></p>
+					<a id="btnMoto3"	class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar
+						Al Carrito</a>
+				</div>
 
+				<div class="info-card" id="bmwCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+				</div>
+			</div> 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="js/dom.js"></script>
+			<div class="card"><!--card ktm-->
+				<img src="img/ktm.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="ktm">
+					<h4>KTM</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
+					<a  id="btnMoto4" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar
+						Al Carrito</a>
+				</div>
+
+				<div class="info-card" id="ktmCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+				</div>
+			</div>
+	
+			<div class="card"><!--card benelli-->
+				<img src="img/benelli.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="benelli">
+					<h4>Benelli</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$30000 <span class="u-pull-right ">$25000</span></p>
+					<a id="btnMoto5" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar
+						Al Carrito</a>
+				</div>
+
+				<div class="info-card" id="benelliCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+				</div>
+			</div>
+	
+			<div class="card"><!--card yamaha-->
+				<img src="img/yamaha.jpeg" class="imagen-producto u-full-width">
+				<div class="info-card" id="yamaha">
+					<h4>Yamaha</h4>
+					<p>Sport motorcycle</p>
+					<img src="img/estrellas.png">
+					<p class="precio">$76000 <span class="u-pull-right ">$65000</span></p>
+					<a id="btnMoto6" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar
+						Al Carrito</a>
+				</div>
+
+				<div class="info-card" id="yamahaCaracteristicas">
+					<h4>Caracteristicas</h4>
+					<p>velocidad</p>
+					<p>cilindrada</p>
+					<p>motor</p>
+					<p>precio</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="js/eventos.js"></script>
+
 </body>
-</html> 
+
+</html>
