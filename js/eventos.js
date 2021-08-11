@@ -1,9 +1,9 @@
-/* constructor */
+// Constructor
 
 class Motos {
-    constructor(marca, precio, cilindrada, velocidad) {
-        this.marca = marca.toUpperCase();
-        this.precio = parseFloat(precio);
+    constructor(obj) {
+        this.marca = obj.marca.toUpperCase();
+        this.precio = parseFloat(obj.precio);
         this.cilindrada = cilindrada;
         this.velocidad = velocidad;
         this.vendido = false;
@@ -19,25 +19,80 @@ class Motos {
     }
 }
 
-const productos = [];
+// Array de objetos
 
-const producto1 = new Motos("ducatti", 200, "1000cc", "300km/h")
-productos.push (producto1);
+const productos =  [{ id:1, producto: "Ducatti", precio: 200,cilindrada: "1000cc", velocidad: "300km/h"},
+                    { id:2, producto: "Honda", precio: 250,cilindrada: "1200cc", velocidad: "400km/h"},
+                    { id:3, producto: "BMW", precio: 210,cilindrada: "1100cc", velocidad: "350km/h"},
+                    { id:4, producto: "KTM", precio: 190,cilindrada: "700cc", velocidad: "270km/h"},
+                    { id:5, producto: "Benelli", precio: 200,cilindrada: "800cc", velocidad: "280km/h"},
+                    { id:6, producto: "Yamaha", precio: 205,cilindrada: "900cc", velocidad: "290km/h"}];
 
-const producto2 = new Motos("honda", 250, "1200cc", "400km/h")
-productos.push (producto2);
 
-const producto3 = new Motos("bmw", 210, "1100cc", "350km/h")
-productos.push (producto3);
+// Array completo almacenado
 
-const producto4 = new Motos("ktm", 190, "700cc", "280km/h")
-productos.push (producto4);
+guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
 
-const producto5 = new Motos("benelli", 170, "800cc", "290km/h")
-productos.push (producto5);
+for(const producto of productos){
+    guardarLocal(producto.id, JSON.stringify(producto))
+}
 
-const producto6 = new Motos("yamaha", 170, "800cc", "290km/h")
-productos.push (producto6);
+guardarLocal("listaMotos",JSON.stringify(productos));
+
+
+
+// obtener array almacenado
+
+// const almacenados = JSON.parse(localStorage.getItem("listaMotos"));
+
+
+// for (const objeto of almacenados)
+//     productos.push(new Motos(objeto));
+
+//     for(const producto of productos)
+//     producto.sumaIva();
+
+
+
+
+
+
+
+
+// const productos = [];
+
+// const producto1 = new Motos("ducatti", 200, "1000cc", "300km/h")
+// productos.push (producto1);
+
+// const producto2 = new Motos("honda", 250, "1200cc", "400km/h")
+// productos.push (producto2);
+
+// const producto3 = new Motos("bmw", 210, "1100cc", "350km/h")
+// productos.push (producto3);
+
+// const producto4 = new Motos("ktm", 190, "700cc", "270km/h")
+// productos.push (producto4);
+
+// const producto5 = new Motos("benelli", 170, "800cc", "280km/h")
+// productos.push (producto5);
+
+// const producto6 = new Motos("yamaha", 170, "900cc", "290km/h")
+// productos.push (producto6);
+
+
+
+
+
+
+
+
+
+
+// local storage
+
+// const enJSON = JSON.stringify(productos);
+
+// localStorage.setItem(Motos, enJSON)
 
 
 //DOM
