@@ -17,12 +17,12 @@
 		<div class="container">
 			<div class="row" >
 				<div class="four columns" id="frase" >
-					<h2 id="tittle">Shop</a></h2>
+					<h2 id="tittle"></a></h2>
 				</div>
 				
-				<div class="two columns u-pull-right">
+				<div class="two columns u-pull-right" id="myCart">
 					<ul>
-						<li class="submenu">
+						<li class="submenu" >
 							<img src="img/carrito1.png" id="img-carrito">
 							<div id="carrito">
 								<table id="lista-carrito" class="u-full-width">
@@ -30,7 +30,7 @@
 										<tr>
 											<th>Imagen</th>
 											<th>Nombre</th>
-											<th>Precio</th>
+											<th>Precio + iva</th>
 											<th>Cantidad</th>
 											<th></th>
 										</tr>
@@ -45,16 +45,15 @@
 			</div>
 		</div>
 	</header><!--termina header-->
-
 	<main>
 		<div id="hero">
 			<div class="container">
 				<div class="row">
 					<div class="six columns">
 						<div class="contenido-hero">
-							<h2>Search ​your motorcycle</h2>
+							<h2 >Search ​your motorcycle</h2>
 							<form id="formulario">
-								<input type="text" class="u-full-width" id="buscador"
+								<input type="search" class=" search u-full-width" id="buscador"
 									placeholder="Ingresa su marca">
 								<input class="submit-buscador" type="submit" value="Buscar">
 							</form>
@@ -62,22 +61,21 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 
 	
-		<h1 class="four">Motorcycle shop</h1>
+		<h1 class="tittle-sport">Sport Motorcycle</h1>
 		<div id="lista-productos" class="container">
 	
-			<div class="card"><!--card ducatti-->
+			<div class="card card-container"><!--card ducatti-->
 				<img src="img/ducatti.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="ducatti">
 					<h4>Ducatti</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
-					<a id="btnMoto1" class="u-full-width button-primary button input agregar-carrito" data-id="1">Ver caracteristicas</a>
+					<a id="btnMoto1" class="u-full-width button-primary button input btn-carac" data-id="1">Ver caracteristicas</a>
 				</div>
-
-				<div class="info-card" id="ducattiCaracteristicas">
+				<div class="info-card fondo-data" id="ducattiCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -87,17 +85,17 @@
 				</div>
 			</div> 
 
-			<div class="card"><!--card honda-->
+			<div class="card card-container"><!--card honda-->
 				<img src="img/principal-honda-cbr-150R.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="honda">
 					<h4>Honda</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$18000 <span class="u-pull-right ">$12000</span></p>
-					<a id="btnMoto2" class="u-full-width button-primary button input agregar-carrito" data-id="2">Ver caracteristicas</a>
+					<a id="btnMoto2" class="u-full-width button-primary button input info-cara btn-carac" data-id="2">Ver caracteristicas</a>
 				</div>
 
-				<div class="info-card" id="hondaCaracteristicas">
+				<div class="info-card fondo-data" id="hondaCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -107,18 +105,18 @@
 				</div>
 			</div>
 	
-			<div class="card"><!--card bmw-->
+			<div class="card card-container"><!--card bmw-->
 				<img src="img/bmw.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="bmw">
 					<h4>BMW</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$25000 <span class="u-pull-right ">$18000</span></p>
-					<a id="btnMoto3"	class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar
+					<a id="btnMoto3"	class="u-full-width button-primary button input btn-carac" data-id="3">Agregar
 						Al Carrito</a>
 				</div>
 
-				<div class="info-card" id="bmwCaracteristicas">
+				<div class="info-card fondo-data" id="bmwCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -128,18 +126,18 @@
 				</div>
 			</div> 
 
-			<div class="card"><!--card ktm-->
+			<div class="card card-container"><!--card ktm-->
 				<img src="img/ktm.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="ktm">
 					<h4>KTM</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
-					<a  id="btnMoto4" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar
+					<a  id="btnMoto4" class="u-full-width button-primary button input btn-carac" data-id="4">Agregar
 						Al Carrito</a>
 				</div>
 
-				<div class="info-card" id="ktmCaracteristicas">
+				<div class="info-card fondo-data" id="ktmCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -149,18 +147,18 @@
 				</div>
 			</div>
 	
-			<div class="card"><!--card benelli-->
+			<div class="card card-container"><!--card benelli-->
 				<img src="img/benelli.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="benelli">
 					<h4>Benelli</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$30000 <span class="u-pull-right ">$25000</span></p>
-					<a id="btnMoto5" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar
+					<a id="btnMoto5" class="u-full-width button-primary button input btn-carac" data-id="5">Agregar
 						Al Carrito</a>
 				</div>
 
-				<div class="info-card" id="benelliCaracteristicas">
+				<div class="info-card fondo-data" id="benelliCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -170,18 +168,18 @@
 				</div>
 			</div>
 	
-			<div class="card"><!--card yamaha-->
+			<div class="card card-container"><!--card yamaha-->
 				<img src="img/yamaha.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="yamaha">
 					<h4>Yamaha</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
 					<p class="precio">$76000 <span class="u-pull-right ">$65000</span></p>
-					<a id="btnMoto6" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar
+					<a id="btnMoto6" class="u-full-width button-primary button input btn-carac" data-id="6">Agregar
 						Al Carrito</a>
 				</div>
 
-				<div class="info-card" id="yamahaCaracteristicas">
+				<div class="info-card fondo-data" id="yamahaCaracteristicas">
 					<h4>Caracteristicas</h4>
 					<p>velocidad</p>
 					<p>cilindrada</p>
@@ -195,10 +193,14 @@
 		<a id="btnMarcas" class="u-full-width button-primary button input agregar-carrito" data-id="3">Conocé las marcas con las que trabajamos</a>
 		<div id="marcas"></div>
 
-
 	</main>
 
-	<script src="js/eventos.js"></script>
+
+	<!-- <script src="js/app.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/Dom.js" type="module"></script>
+	<script src="js/SearchPosts.js" type="module"></script>
 
 </body>
 
