@@ -147,6 +147,11 @@ tbody img {
     margin-bottom:20px;
 }
 
+#lista-carrito{
+    font-size: 1.4rem;
+
+}
+
 #lista-productos {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));

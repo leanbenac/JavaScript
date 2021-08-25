@@ -1,5 +1,5 @@
-import { searchPosts } from "./SearchPosts";
+import { searchPosts } from "./SearchPosts.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
-    searchPosts(".search", ".card-container");
+    searchPosts(".search", "#card-container");
 });

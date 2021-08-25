@@ -13,6 +13,7 @@ $("#lista-carrito tbody").click (borrarProducto);
 // btnVaciarCarrito.addEventListener('click', vaciarCarrito);
 $("#vaciar-carrito").click (vaciarCarrito);
 
+
 $( document ).ready(() => {
 
 	if (JSON.parse(localStorage.getItem('carrito'))) {
@@ -187,8 +188,8 @@ tittle.innerHTML = "Motorcycle Shop";
 $("#btnMoto1").click (mostrarM1);
 
 function mostrarM1(){
-    ducatti.style.display="none";
-    ducattiCaracteristicas.style.display="block";
+	$("#ducatti").hide();
+    $("#ducattiCaracteristicas").fadeIn();
 }
 
 // honda
@@ -204,8 +205,8 @@ function mostrarM1(){
 $("#btnMoto2").click (mostrarM2); 
 
 function mostrarM2(){
-    honda.style.display="none";
-    hondaCaracteristicas.style.display="block";
+	$("#honda").hide();
+    $("#hondaCaracteristicas").fadeIn();
 }
 
 // bmw
@@ -220,8 +221,8 @@ function mostrarM2(){
 $("#btnMoto3").click (mostrarM3);
 
 function mostrarM3(){
-    bmw.style.display="none";
-    bmwCaracteristicas.style.display="block";
+	$("#bmw").hide();
+    $("#bmwCaracteristicas").fadeIn();
 }
 
 // ktm 
@@ -236,8 +237,8 @@ function mostrarM3(){
 $("#btnMoto4").click (mostrarM4);
 
 function mostrarM4(){
-    ktm.style.display="none";
-    ktmCaracteristicas.style.display="block";
+	$("#ktm").hide();
+    $("#ktmCaracteristicas").fadeIn();
 }
 
 // benelli
@@ -252,8 +253,8 @@ function mostrarM4(){
 $("#btnMoto5").click (mostrarM5);
 
 function mostrarM5(){
-    benelli.style.display="none";
-    benelliCaracteristicas.style.display="block";
+	$("#benelli").hide();
+    $("#benelliCaracteristicas").fadeIn();
 }
 
 // yamaha
@@ -268,8 +269,8 @@ function mostrarM5(){
 $("#btnMoto6").click (mostrarM6);
 
 function mostrarM6(){
-    yamaha.style.display="none";
-    yamahaCaracteristicas.style.display="block";
+	$("#yamaha").hide();
+    $("#yamahaCaracteristicas").fadeIn();
 }
 
 // /*  EVENTO - concoce mis marcas  */
