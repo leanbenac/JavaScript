@@ -201,126 +201,64 @@ function guardarCarritoStorage() {
 const titulo = document.getElementById(tittle);
 tittle.innerHTML = "Motorcycle Shop";
 
-    /* EVENTOS >>> reemplazando >>>> jQuery eventos */
-
-// ducatti
-// let ducatti = document.getElementById("ducatti");
-
-// let ducattiCaracteristicas = document.getElementById("ducattiCaracteristicas");
-
-// let caracteristicasMoto1 = document.getElementById("btnMoto1");
-
-// caracteristicasMoto1.addEventListener("click", mostrarM1);
-
+//ducatti
 $("#btnMoto1").click (mostrarM1);
 
 function mostrarM1(){
+
 	$("#ducatti").hide();
     $("#ducattiCaracteristicas").fadeIn();
 }
 
 // honda
-
-// let honda = document.getElementById("honda");
-
-// let hondaCaracteristicas = document.getElementById("hondaCaracteristicas");
-
-// let caracteristicasMoto2 = document.getElementById("btnMoto2");
-
-// caracteristicasMoto2.addEventListener("click", mostrarM2);
-
 $("#btnMoto2").click (mostrarM2); 
 
 function mostrarM2(){
+
 	$("#honda").hide();
     $("#hondaCaracteristicas").fadeIn();
 }
 
 // bmw
-// let bmw = document.getElementById("bmw");
-
-// let bmwCaracteristicas = document.getElementById("bmwCaracteristicas");
-
-// let caracteristicasMoto3 = document.getElementById("btnMoto3");
-
-// caracteristicasMoto3.addEventListener("click", mostrarM3);
-
 $("#btnMoto3").click (mostrarM3);
 
 function mostrarM3(){
+
 	$("#bmw").hide();
     $("#bmwCaracteristicas").fadeIn();
 }
 
 // ktm 
-// let ktm = document.getElementById("ktm");
-
-// let ktmCaracteristicas = document.getElementById("ktmCaracteristicas");
-
-// let caracteristicasMoto4 = document.getElementById("btnMoto4");
-
-// caracteristicasMoto4.addEventListener("click", mostrarM4);
-
 $("#btnMoto4").click (mostrarM4);
 
 function mostrarM4(){
+
 	$("#ktm").hide();
     $("#ktmCaracteristicas").fadeIn();
 }
 
 // benelli
-// let benelli = document.getElementById("benelli");
-
-// let benelliCaracteristicas = document.getElementById("benelliCaracteristicas");
-
-// let caracteristicasMoto5 = document.getElementById("btnMoto5");
-
-// caracteristicasMoto5.addEventListener("click", mostrarM5);
-
 $("#btnMoto5").click (mostrarM5);
 
 function mostrarM5(){
+
 	$("#benelli").hide();
     $("#benelliCaracteristicas").fadeIn();
 }
 
 // yamaha
-// let yamaha = document.getElementById("yamaha");
-
-// let yamahaCaracteristicas = document.getElementById("yamahaCaracteristicas");
-
-// let caracteristicasMoto6 = document.getElementById("btnMoto6");
-
-// caracteristicasMoto6.addEventListener("click", mostrarM6);
-
 $("#btnMoto6").click (mostrarM6);
 
 function mostrarM6(){
+
 	$("#yamaha").hide();
     $("#yamahaCaracteristicas").fadeIn();
 }
 
-// /*  EVENTO - concoce mis marcas  */
-// let marcas = document.getElementById("marcas");
+$('#tittle').append("<div><h3> Sport Style<h3><div>");
 
-// let btnMarcas = document.getElementById("btnMarcas");
+/* Jquery eventos - caracteristicas */
 
-// for (const Motos of productos){
-//     let li = document.createElement("li");
-//     li.innerHTML = Motos.marca;
-//     marcas.appendChild(li);
-// }
-
-// btnMarcas.addEventListener("click", mostrarMarcas);
-
-// function mostrarMarcas(){   
-//     marcas.style.display="block";
-// }
-
-// $('#tittle').append("<div><h3> Sport Style<h3><div>");
-
-
-// /* Jquery eventos - caracteristicas */
 //ducatti
 $("#btnCerrar1").click (ocultarCerrar1);
 
@@ -373,48 +311,48 @@ $("#yamahaCaracteristicas").fadeOut();
 $("#yamaha").fadeIn();
 }
 
-
-
 /* AJAX con JSON */
-$('#btnJson').click (traerDatos);
+// $('#btnJson').click (traerDatos);
 
-function traerDatos(){
+// function traerDatos(){
 
-	// console.log('dentro de la función');
+// 	// console.log('dentro de la función');
 
-	const xhttp = new XMLHttpRequest();
+// 	const xhttp = new XMLHttpRequest();
 
-	xhttp.open('GET','catalogo.json', true);
+// 	xhttp.open('GET','catalogo.json', true);
 
-	xhttp.send();
+// 	xhttp.send();
 
-	xhttp.onreadystatechange = function(){
+// 	xhttp.onreadystatechange = function(){
 
-		if(this.readyState == 4 && this.status == 200){
+// 		if(this.readyState == 4 && this.status == 200){
 
-			console.log(this.responseText);
-			let datos = JSON.parse(this.responseText);
-			// console.log(datos);
-			let res = document.querySelector("#res");
-			res.innerHTML = '';
+// 			console.log(this.responseText);
+// 			let datos = JSON.parse(this.responseText);
+// 			// console.log(datos);
+// 			let res = document.querySelector("#res");
+// 			res.innerHTML = '';
 
-			for(let item of datos){
-			// console.log(item.marca);
-			res.innerHTML +=`
-			<tr>
-			<th>${item.marca}</th>
-			<th>${item.cilindrada}</th>
-			<th>${item.velocidad}</th>
-			</tr>
-			`
-			}
-		}
-	}
-}
+// 			for(let item of datos){
+// 			// console.log(item.marca);
+// 			res.innerHTML +=`
+// 			<tr>
+// 			<th>${item.marca}</th>
+// 			<th>${item.cilindrada}</th>
+// 			<th>${item.velocidad}</th>
+// 			</tr>
+// 			`
+// 			}
+// 		}
+// 	}
+// }
 
-$("#btnJson").click (mostrarJson);
 
-function mostrarJson(){
 
-	$("#ajax").fadeIn();
-}
+// $("#btnJson").click (mostrarJson);
+
+// function mostrarJson(){
+
+// 	$("#ajax").fadeIn();
+// }
