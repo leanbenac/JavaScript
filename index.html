@@ -25,18 +25,26 @@
 					<ul>
 						<li class="submenu"  >
 							<img src="img/carrito1.png" id="img-carrito" >
-							<div id="carrito">
+							<div id="carrito" class="carro">
 								<table id="lista-carrito" class="u-full-width">
 									<thead>
 										<tr>
 											<th>Imagen</th>
-											<th>Nombre</th>
-											<th>Precio + iva</th>
+											<th>Marca</th>
+											<th>Precio</th>
 											<th>Cantidad</th>
-											<th></th>
+											<th> </th>
 										</tr>
 									</thead>
-									<tbody></tbody>
+									<tbody>
+										
+									</tbody>
+									<tr>
+										<th>Precio</th>
+										<th>Total</th>
+										<th></tr>
+										
+									</tr>
 								</table>
 								<a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
 							</div>
@@ -46,6 +54,8 @@
 			</div>
 		</div>
 	</header><!--termina header-->
+
+	
 	<main>
 		<div id="hero">
 			<div class="container">
@@ -72,17 +82,18 @@
 				<img src="img/ducatti.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="ducatti">
 					<h4>Ducatti</h4>
-					<p>Sport motorcycle</p>
+					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
+					<p class="precio">$200.000 <span class="u-pull-right ">$180000</span></p>
 					<a id="btnMoto1" class="u-full-width button-primary button input btn-carac" data-id="1">Ver caracteristicas</a>
 				</div>
 				<div class="info-card fondo-data" id="ducattiCaracteristicas">
+					<p id="btnCerrar1" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
+					<p>Ducatti Monster</p>
+					<p>Cilindrada 1000cc.</p>
+					<p>Velocidad 300km/h.</p>
+					<p>$180.000</p>
 					<a class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar al carro</a>
 				</div>
 			</div> 
@@ -91,18 +102,19 @@
 				<img src="img/principal-honda-cbr-150R.jpeg" class="imagen-producto u-full-width" >
 				<div class="info-card" id="honda">
 					<h4>Honda</h4>
-					<p>Sport motorcycle</p>
+					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$18000 <span class="u-pull-right ">$12000</span></p>
+					<p class="precio">$250.000 <span class="u-pull-right ">$225.000</span></p>
 					<a id="btnMoto2" class="u-full-width button-primary button input info-cara btn-carac" data-id="2">Ver caracteristicas</a>
 				</div>
 
 				<div class="info-card fondo-data" id="hondaCaracteristicas">
+					<p id="btnCerrar2" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
+					<p>Honda CBR</p>
+					<p>Cilindrada 1200cc.</p>
+					<p>Velocidad 400km/h.</p>
+					<p>$225.000</p>
 					<a class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar al carro</a>
 				</div>
 			</div>
@@ -111,20 +123,20 @@
 				<img src="img/bmw.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="bmw">
 					<h4>BMW</h4>
-					<p>Sport motorcycle</p>
+					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$25000 <span class="u-pull-right ">$18000</span></p>
-					<a id="btnMoto3"	class="u-full-width button-primary button input btn-carac" data-id="3">Agregar
-						Al Carrito</a>
+					<p class="precio">$210.000 <span class="u-pull-right ">$189000</span></p>
+					<a id="btnMoto3"	class="u-full-width button-primary button input btn-carac" data-id="3">Agregar Al Carrito</a>
 				</div>
 
 				<div class="info-card fondo-data" id="bmwCaracteristicas">
+					<p id="btnCerrar3" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+					<p>BMW RRs</p>
+					<p>Cilindrada 1100cc.</p>
+					<p>Velocidad 350km/h.</p>
+					<p>$189.000</p>
+					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al carrito</a>
 				</div>
 			</div> 
 					<!--card ktm-->
@@ -134,17 +146,18 @@
 					<h4>KTM</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$20000 <span class="u-pull-right ">$15000</span></p>
+					<p class="precio">$180.000 <span class="u-pull-right ">$162000</span></p>
 					<a  id="btnMoto4" class="u-full-width button-primary button input btn-carac" data-id="4">Agregar
 						Al Carrito</a>
 				</div>
 
 				<div class="info-card fondo-data" id="ktmCaracteristicas">
+					<p id="btnCerrar4" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
+					<p>KTM Duke</p>
+					<p>Cilindrada 800cc.</p>
+					<p>Velocidad 280km/h.</p>
+					<p>$162.000</p>
 					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
 				</div>
 			</div>
@@ -155,17 +168,18 @@
 					<h4>Benelli</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$30000 <span class="u-pull-right ">$25000</span></p>
+					<p class="precio">$170.000 <span class="u-pull-right ">$153000</span></p>
 					<a id="btnMoto5" class="u-full-width button-primary button input btn-carac" data-id="5">Agregar
 						Al Carrito</a>
 				</div>
 
 				<div class="info-card fondo-data" id="benelliCaracteristicas">
+					<p id="btnCerrar5" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
+					<p>Benelli TNT</p>
+					<p>Cilindrada 700cc</p>
+					<p>Velocidad 270km/h.</p>
+					<p>$153.000</p>
 					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
 				</div>
 			</div>
@@ -176,24 +190,40 @@
 					<h4>Yamaha</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$76000 <span class="u-pull-right ">$65000</span></p>
+					<p class="precio">$190.000 <span class="u-pull-right ">$171000</span></p>
 					<a id="btnMoto6" class="u-full-width button-primary button input btn-carac" data-id="6">Agregar
 						Al Carrito</a>
 				</div>
 
 				<div class="info-card fondo-data" id="yamahaCaracteristicas">
+					<p id="btnCerrar6" class="x">X</p>
 					<h4>Caracteristicas</h4>
-					<p>velocidad</p>
-					<p>cilindrada</p>
-					<p>motor</p>
-					<p>precio</p>
+					<p>Yamaha R1</p>
+					<p>Cilindrada 900cc.</p>
+					<p>Velocidad 290km/h.</p>
+					<p>$171.000</p>
 					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
 				</div>
 			</div>
 		</div>
 
-		<a id="btnMarcas" class="u-full-width button-primary button input agregar-carrito" data-id="3">Conocé las marcas con las que trabajamos</a>
-		<div id="marcas"></div>
+		<a id="btnJson" class="u-full-width button-primary button input agregar-carrito" data-id="3">JSON</a>
+
+
+			<table id="ajax">
+			<thead>
+				<tr>
+					<th>Marca</th>
+					<th>Cilindrada</th>
+					<th>Velocidad</th>
+				</tr>
+			</thead>
+			<tbody id="res">
+					
+			</tbody>
+			</table>
+		<!-- <a id="btnJson" class="u-full-width button-primary button input agregar-carrito">AJAX</a> -->
+		<!-- <div id="marcas"></div> -->
 
 	</main>
 

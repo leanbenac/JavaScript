@@ -22,6 +22,7 @@ $( document ).ready(() => {
 	}
 });
 
+// Constructor
 
 class Motos {
     constructor( marca, precio, cilindrada, velocidad ) {
@@ -44,25 +45,51 @@ class Motos {
 
 }
 
-const productos = [];
 
-const producto1 = new Motos("ducatti", 200, "1000cc", "300km/h")
-productos.push (producto1);
+const productos =  [{ id:1, producto: "Ducatti", precio: 200,cilindrada: "1000cc", velocidad: "300km/h"},
+                    { id:2, producto: "Honda", precio: 250,cilindrada: "1200cc", velocidad: "400km/h"},
+                    { id:3, producto: "BMW", precio: 210,cilindrada: "1100cc", velocidad: "350km/h"},
+                    { id:4, producto: "KTM", precio: 190,cilindrada: "700cc", velocidad: "270km/h"},
+                    { id:5, producto: "Benelli", precio: 200,cilindrada: "800cc", velocidad: "280km/h"},
+                    { id:6, producto: "Yamaha", precio: 205,cilindrada: "900cc", velocidad: "290km/h"}];
 
-const producto2 = new Motos("honda", 250, "1200cc", "400km/h")
-productos.push (producto2);
+// Array completo almacenado
+guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
 
-const producto3 = new Motos("bmw", 210, "1100cc", "350km/h")
-productos.push (producto3);
+for(const producto of productos){
+    guardarLocal(producto.id, JSON.stringify(producto))
+}
+    guardarLocal("listaMotos",JSON.stringify(productos));
 
-const producto4 = new Motos("ktm", 190, "700cc", "270km/h")
-productos.push (producto4);
+productos.sort((a,b) => {
+    if (a.precio < b.precio){
+    return -1;
+    }
+    if (a.precio > b.precio){
+        return 1;
+    }   
+    return 0;
+});
 
-const producto5 = new Motos("benelli", 170, "800cc", "280km/h")
-productos.push (producto5);
+// const productos = [];
 
-const producto6 = new Motos("yamaha", 170, "900cc", "290km/h")
-productos.push (producto6);
+// const producto1 = new Motos("ducatti", 200000, "1000cc", "300km/h")
+// productos.push (producto1);
+
+// const producto2 = new Motos("honda", 250000, "1200cc", "400km/h")
+// productos.push (producto2);
+
+// const producto3 = new Motos("bmw", 210000, "1100cc", "350km/h")
+// productos.push (producto3);
+
+// const producto4 = new Motos("ktm", 180000, "800cc", "280km/h")
+// productos.push (producto4);
+
+// const producto5 = new Motos("benelli", 170000, "700cc", "270km/h")
+// productos.push (producto5);
+
+// const producto6 = new Motos("yamaha", 190000, "900cc", "290km/h")
+// productos.push (producto6);
 
 
 function vaciarCarrito() {
@@ -274,21 +301,120 @@ function mostrarM6(){
 }
 
 // /*  EVENTO - concoce mis marcas  */
-let marcas = document.getElementById("marcas");
+// let marcas = document.getElementById("marcas");
 
-let btnMarcas = document.getElementById("btnMarcas");
+// let btnMarcas = document.getElementById("btnMarcas");
 
-for (const Motos of productos){
-    let li = document.createElement("li");
-    li.innerHTML = Motos.marca;
-    marcas.appendChild(li);
+// for (const Motos of productos){
+//     let li = document.createElement("li");
+//     li.innerHTML = Motos.marca;
+//     marcas.appendChild(li);
+// }
+
+// btnMarcas.addEventListener("click", mostrarMarcas);
+
+// function mostrarMarcas(){   
+//     marcas.style.display="block";
+// }
+
+// $('#tittle').append("<div><h3> Sport Style<h3><div>");
+
+
+// /* Jquery eventos - caracteristicas */
+//ducatti
+$("#btnCerrar1").click (ocultarCerrar1);
+
+function ocultarCerrar1(){
+
+$("#ducattiCaracteristicas").fadeOut();
+
+$("#ducatti").fadeIn();
 }
 
-btnMarcas.addEventListener("click", mostrarMarcas);
+//honda
+$("#btnCerrar2").click (ocultarCerrar2);
 
-function mostrarMarcas(){   
-    marcas.style.display="block";
+function ocultarCerrar2(){
+
+$("#hondaCaracteristicas").fadeOut();
+
+$("#honda").fadeIn();
 }
 
-$('#tittle').append("<div><h3> Sport Style<h3><div>");
+//bmw
+$("#btnCerrar3").click (ocultarCerrar3);
 
+function ocultarCerrar3(){
+$("#bmwCaracteristicas").fadeOut();
+$("#bmw").fadeIn();
+}
+
+//ktm
+$("#btnCerrar4").click (ocultarCerrar4);
+
+function ocultarCerrar4(){
+$("#ktmCaracteristicas").fadeOut();
+$("#ktm").fadeIn();
+}
+
+//benelli
+$("#btnCerrar5").click (ocultarCerrar5);
+
+function ocultarCerrar5(){
+$("#benelliCaracteristicas").fadeOut();
+$("#benelli").fadeIn();
+}
+
+//yamaha
+$("#btnCerrar6").click (ocultarCerrar6);
+
+function ocultarCerrar6(){
+$("#yamahaCaracteristicas").fadeOut();
+$("#yamaha").fadeIn();
+}
+
+
+
+/* AJAX con JSON */
+$('#btnJson').click (traerDatos);
+
+function traerDatos(){
+
+	// console.log('dentro de la función');
+
+	const xhttp = new XMLHttpRequest();
+
+	xhttp.open('GET','catalogo.json', true);
+
+	xhttp.send();
+
+	xhttp.onreadystatechange = function(){
+
+		if(this.readyState == 4 && this.status == 200){
+
+			console.log(this.responseText);
+			let datos = JSON.parse(this.responseText);
+			// console.log(datos);
+			let res = document.querySelector("#res");
+			res.innerHTML = '';
+
+			for(let item of datos){
+			// console.log(item.marca);
+			res.innerHTML +=`
+			<tr>
+			<th>${item.marca}</th>
+			<th>${item.cilindrada}</th>
+			<th>${item.velocidad}</th>
+			</tr>
+			`
+			}
+		}
+	}
+}
+
+$("#btnJson").click (mostrarJson);
+
+function mostrarJson(){
+
+	$("#ajax").fadeIn();
+}

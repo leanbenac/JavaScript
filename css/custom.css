@@ -245,4 +245,12 @@ text-align: center;
     display:none;
 }
 
+.x{
+    text-align: right;
+    cursor: pointer;
+}
+
+#ajax{
+    display: none;
+}
 
