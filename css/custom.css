@@ -480,3 +480,8 @@ button {
 	font-size: 4em;
 }
 
+.marcasJob{
+    text-align: center;
+    justify-content: center;
+    justify-items:center ;
+}
