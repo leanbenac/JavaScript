@@ -4,26 +4,21 @@ const tableCarrito = document.querySelector("#lista-carrito tbody");
 const btnVaciarCarrito = document.querySelector('#vaciar-carrito');
 let carrito = [];
 
-/* Listeners */ // reemplazando por jQuery
-
-// listaProductos.addEventListener('click', agregarProducto);
+/* Listeners */ 
 $("#lista-productos").click (agregarProducto);
-// tableCarrito.addEventListener('click', borrarProducto);
 $("#lista-carrito tbody").click (borrarProducto);
-// btnVaciarCarrito.addEventListener('click', vaciarCarrito);
 $("#vaciar-carrito").click (vaciarCarrito);
 
 
 $( document ).ready(() => {
-
 	if (JSON.parse(localStorage.getItem('carrito'))) {
 		carrito = JSON.parse(localStorage.getItem('carrito'));
 		insertarCarritoHTML();
 	}
 });
 
-// Constructor
 
+// Constructor
 class Motos {
     constructor( marca, precio, cilindrada, velocidad ) {
         this.marca = marca.toUpperCase();
@@ -34,7 +29,7 @@ class Motos {
     }
     sumaIva() {
         this.precio = this.precio * 1.21;
-        console.log(sumaIva);
+        console.log(this.sumaIva);
     }
     vender(){
         this.vendido = true;
@@ -42,16 +37,17 @@ class Motos {
     detalle(){ 
         console.log(" Marca: "+ this.marca +" Precio: "+ this.precio +" CC: "+ this.cc +" Vel: " +this.vel);
     }
-
 }
 
 
-const productos =  [{ id:1, producto: "Ducatti", precio: 200,cilindrada: "1000cc", velocidad: "300km/h"},
-                    { id:2, producto: "Honda", precio: 250,cilindrada: "1200cc", velocidad: "400km/h"},
-                    { id:3, producto: "BMW", precio: 210,cilindrada: "1100cc", velocidad: "350km/h"},
-                    { id:4, producto: "KTM", precio: 190,cilindrada: "700cc", velocidad: "270km/h"},
-                    { id:5, producto: "Benelli", precio: 200,cilindrada: "800cc", velocidad: "280km/h"},
-                    { id:6, producto: "Yamaha", precio: 205,cilindrada: "900cc", velocidad: "290km/h"}];
+// Array
+const productos =  [{ id:1, producto: "Ducatti", precio: 180000,cilindrada: "1000cc", velocidad: "300km/h"},
+                    { id:2, producto: "Honda", precio: 250000,cilindrada: "1200cc", velocidad: "400km/h"},
+                    { id:3, producto: "BMW", precio: 189000,cilindrada: "1100cc", velocidad: "350km/h"},
+                    { id:4, producto: "KTM", precio: 162000,cilindrada: "700cc", velocidad: "270km/h"},
+                    { id:5, producto: "Benelli", precio: 153000,cilindrada: "800cc", velocidad: "280km/h"},
+                    { id:6, producto: "Yamaha", precio: 171000,cilindrada: "900cc", velocidad: "290km/h"}];
+
 
 // Array completo almacenado
 guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
@@ -61,6 +57,8 @@ for(const producto of productos){
 }
     guardarLocal("listaMotos",JSON.stringify(productos));
 
+
+// productor ordenados x menor precio
 productos.sort((a,b) => {
     if (a.precio < b.precio){
     return -1;
@@ -71,38 +69,37 @@ productos.sort((a,b) => {
     return 0;
 });
 
-// const productos = [];
 
-// const producto1 = new Motos("ducatti", 200000, "1000cc", "300km/h")
-// productos.push (producto1);
+// calcular total 
+const totalCarrito = () => {
 
-// const producto2 = new Motos("honda", 250000, "1200cc", "400km/h")
-// productos.push (producto2);
+	let total = document.querySelector("#total");
 
-// const producto3 = new Motos("bmw", 210000, "1100cc", "350km/h")
-// productos.push (producto3);
-
-// const producto4 = new Motos("ktm", 180000, "800cc", "280km/h")
-// productos.push (producto4);
-
-// const producto5 = new Motos("benelli", 170000, "700cc", "270km/h")
-// productos.push (producto5);
-
-// const producto6 = new Motos("yamaha", 190000, "900cc", "290km/h")
-// productos.push (producto6);
+	if (localStorage.getItem("carrito") ) {
+		let cart = JSON.parse(localStorage.getItem("carrito"));
+		const totalCart = () => cart.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0)
+		total.innerHTML = totalCart();
+	}else{
+		total.innerHTML = "0"
+	};
+}
+totalCarrito();
 
 
+// varciar carrito
 function vaciarCarrito() {
 	carrito = [];
 	insertarCarritoHTML();
+	//actualizo el carrito
+	totalCarrito();
 }
 
-
+// borrar producto
 function borrarProducto(e) {
 	e.preventDefault();
 
 	if (e.target.classList.contains("borrar-producto")) {
-		/* Opcion 1 */
+
 		const productoSeleccionado = e.target.parentElement.parentElement;
 		const productoId = e.target.getAttribute('data-id');
 
@@ -116,17 +113,24 @@ function borrarProducto(e) {
 		guardarCarritoStorage();
 
 	}
+	//actualizo el carrito
+	totalCarrito();
 }
+
+// agregar producto
 
 function agregarProducto(e) {
 	e.preventDefault();
-
-	if (e.target.classList.contains("agregar-carrito")) {
+	if (e.target.classList.contains("agregar-carrito"))  {
 		const cardProducto = e.target.parentElement.parentElement;
-
 		obtenerDatosProducto(cardProducto);
 	}
+	//actualizo el carrito
+	totalCarrito();
 }
+
+
+// obtengo datos productos
 
 function obtenerDatosProducto(cardProducto) {
 
@@ -144,7 +148,7 @@ function obtenerDatosProducto(cardProducto) {
 		const productos = carrito.map(producto => {
 			if (producto.id === productoAgregado.id) {
 				producto.cantidad++;
-				producto.precio = `$${Number(productoAgregado.precio.slice(1)) * producto.cantidad}`
+				producto.precio = `${Number(productoAgregado.precio.slice(1)) * producto.cantidad}`
 				// return producto;
 			} else {
 				// return producto;
@@ -157,17 +161,16 @@ function obtenerDatosProducto(cardProducto) {
 		// carrito.push(productoAgregado);
 		carrito = [...carrito, productoAgregado];
 	}
-
-
 	insertarCarritoHTML();
 }
 
+// insertar al carrito
 function insertarCarritoHTML() {
 
 	borrarCarritoHTML();
 
 	carrito.forEach(producto => {
-		/* Destructuring de objetos */
+
 		const { imagen, nombre, precio, cantidad, id } = producto;
 
 		const row = document.createElement('tr');
@@ -176,7 +179,7 @@ function insertarCarritoHTML() {
 			<img src="${imagen}" width='100%'>
 		</td>
 		<td>${nombre}</td>
-		<td>${precio}</td>
+		<td>${precio }</td>
 		<td>${cantidad}</td>
 		<td>
 			<a href="#" class="borrar-producto" data-id="${id}">X</a>
@@ -196,163 +199,218 @@ function guardarCarritoStorage() {
 	localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+//modal confirmacion compra
+
+const open = document.getElementById('open');
+open.addEventListener('click', () => {
+	modal_container.classList.add('show');  
+});
+
+$("#close").click (cerrarModal);
+function cerrarModal(){
+	$("#modal_container").fadeOut()
+	vaciarCarrito()
+	guardarCarritoStorage()
+}
+
+// aninimacion search
+$(".search")	
+		.slideUp(2000)
+		.delay(2000)
+		.slideDown(2000);
+
 //DOM
-
 const titulo = document.getElementById(tittle);
-tittle.innerHTML = "Motorcycle Shop";
+tittle.innerHTML = "Tienda de Motos";
 
-//ducatti
+
+/* ducatti */
+
+// mostrar carateristicas
 $("#btnMoto1").click (mostrarM1);
-
 function mostrarM1(){
-
 	$("#ducatti").hide();
     $("#ducattiCaracteristicas").fadeIn();
 }
 
-// honda
+//boton cerrar
+$("#btnCerrar1").click (ocultarCerrar1);
+function ocultarCerrar1(){
+$("#ducattiCaracteristicas").fadeOut();
+$("#ducatti").fadeIn();
+}
+
+//evento añadido
+$(".agregar-ducatti").click (ducattiA) 
+function ducattiA () {
+	$(".añadir-ducatti").fadeIn("fast");
+	$(".añadir-ducatti").delay(800);
+	$(".añadir-ducatti").hide("fast");
+}
+
+
+/* honda */
+
+// mostrar carateristicas
 $("#btnMoto2").click (mostrarM2); 
-
 function mostrarM2(){
-
 	$("#honda").hide();
     $("#hondaCaracteristicas").fadeIn();
 }
 
-// bmw
+// boton cerrar
+$("#btnCerrar2").click (ocultarCerrar2);
+function ocultarCerrar2(){
+$("#hondaCaracteristicas").fadeOut();
+$("#honda").fadeIn();
+}
+
+//evento añadido
+$(".agregar-honda").click (hondaA);
+function hondaA (){
+	$(".añadir-honda").fadeIn("fast");
+	$(".añadir-honda").delay(800);
+	$(".añadir-honda").hide("fast");
+}
+
+
+/* bmw */
+
+// mostrar caracteristicas
 $("#btnMoto3").click (mostrarM3);
-
 function mostrarM3(){
-
 	$("#bmw").hide();
     $("#bmwCaracteristicas").fadeIn();
 }
 
-// ktm 
-$("#btnMoto4").click (mostrarM4);
-
-function mostrarM4(){
-
-	$("#ktm").hide();
-    $("#ktmCaracteristicas").fadeIn();
-}
-
-// benelli
-$("#btnMoto5").click (mostrarM5);
-
-function mostrarM5(){
-
-	$("#benelli").hide();
-    $("#benelliCaracteristicas").fadeIn();
-}
-
-// yamaha
-$("#btnMoto6").click (mostrarM6);
-
-function mostrarM6(){
-
-	$("#yamaha").hide();
-    $("#yamahaCaracteristicas").fadeIn();
-}
-
-$('#tittle').append("<div><h3> Sport Style<h3><div>");
-
-/* Jquery eventos - caracteristicas */
-
-//ducatti
-$("#btnCerrar1").click (ocultarCerrar1);
-
-function ocultarCerrar1(){
-
-$("#ducattiCaracteristicas").fadeOut();
-
-$("#ducatti").fadeIn();
-}
-
-//honda
-$("#btnCerrar2").click (ocultarCerrar2);
-
-function ocultarCerrar2(){
-
-$("#hondaCaracteristicas").fadeOut();
-
-$("#honda").fadeIn();
-}
-
-//bmw
+// boton cerrar
 $("#btnCerrar3").click (ocultarCerrar3);
-
 function ocultarCerrar3(){
 $("#bmwCaracteristicas").fadeOut();
 $("#bmw").fadeIn();
 }
 
-//ktm
-$("#btnCerrar4").click (ocultarCerrar4);
+// evento añadido
+$(".agregar-bmw").click (bmwA);
+function bmwA (){
+	$(".añadir-bmw").fadeIn("fast");
+	$(".añadir-bmw").delay(800);
+	$(".añadir-bmw").hide("fast");
+}
 
+
+/* ktm */
+
+// mostrar caracteristicas
+$("#btnMoto4").click (mostrarM4);
+function mostrarM4(){
+	$("#ktm").hide();
+    $("#ktmCaracteristicas").fadeIn();
+}
+
+// boton cerrar
+$("#btnCerrar4").click (ocultarCerrar4);
 function ocultarCerrar4(){
 $("#ktmCaracteristicas").fadeOut();
 $("#ktm").fadeIn();
 }
 
-//benelli
-$("#btnCerrar5").click (ocultarCerrar5);
+// evento añadido
+$(".agregar-ktm").click (ktmA);
+function ktmA (){
+	$(".añadir-ktm").fadeIn("fast");
+	$(".añadir-ktm").delay(800);
+	$(".añadir-ktm").hide("fast");
+}
 
+
+/* benelli */
+
+// mostrar caracteristicas
+$("#btnMoto5").click (mostrarM5);
+function mostrarM5(){
+	$("#benelli").hide();
+    $("#benelliCaracteristicas").fadeIn();
+}
+
+// boton cerrar
+$("#btnCerrar5").click (ocultarCerrar5);
 function ocultarCerrar5(){
 $("#benelliCaracteristicas").fadeOut();
 $("#benelli").fadeIn();
 }
 
-//yamaha
-$("#btnCerrar6").click (ocultarCerrar6);
+// evento añadido
+$(".agregar-benelli").click (benelliA);
+function benelliA (){
+	$(".añadir-benelli").fadeIn("fast");
+	$(".añadir-benelli").delay(800);
+	$(".añadir-benelli").hide("fast");
+}
 
+
+/* yamaha */
+
+// mostrar caracteristicas
+$("#btnMoto6").click (mostrarM6);
+function mostrarM6(){
+	$("#yamaha").hide();
+    $("#yamahaCaracteristicas").fadeIn();
+}
+
+// boton cerrar
+$("#btnCerrar6").click (ocultarCerrar6);
 function ocultarCerrar6(){
 $("#yamahaCaracteristicas").fadeOut();
 $("#yamaha").fadeIn();
 }
 
+// evento añadido
+$(".agregar-yamaha").click (yamahaA);
+function yamahaA (){
+	$(".añadir-yamaha").fadeIn("fast");
+	$(".añadir-yamaha").delay(800);
+	$(".añadir-yamaha").hide("fast");
+}
+
+
+
 /* AJAX con JSON */
-// $('#btnJson').click (traerDatos);
+$('#btnJson').click (traerDatos);
 
-// function traerDatos(){
+function traerDatos(){
 
-// 	// console.log('dentro de la función');
+	// console.log('dentro de la función');
 
-// 	const xhttp = new XMLHttpRequest();
+	const xhttp = new XMLHttpRequest();
+	xhttp.open('GET','catalogo.json', true);
+	xhttp.send();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
 
-// 	xhttp.open('GET','catalogo.json', true);
+			console.log(this.responseText);
+			let datos = JSON.parse(this.responseText);
+			// console.log(datos);
+			let res = document.querySelector("#res");
+			res.innerHTML = '';
+			for(let item of datos){
+			// console.log(item.marca);
+			res.innerHTML +=`
+			<tr>
+			<th>${item.marca}</th>
+			<th>${item.cilindrada}</th>
+			<th>${item.velocidad}</th>
+			</tr>
+			`
+			}
+		}
+	}
+}
 
-// 	xhttp.send();
+$("#btnJson").click (mostrarJson);
+function mostrarJson(){
+	$("#ajax").fadeIn();
+}
 
-// 	xhttp.onreadystatechange = function(){
-
-// 		if(this.readyState == 4 && this.status == 200){
-
-// 			console.log(this.responseText);
-// 			let datos = JSON.parse(this.responseText);
-// 			// console.log(datos);
-// 			let res = document.querySelector("#res");
-// 			res.innerHTML = '';
-
-// 			for(let item of datos){
-// 			// console.log(item.marca);
-// 			res.innerHTML +=`
-// 			<tr>
-// 			<th>${item.marca}</th>
-// 			<th>${item.cilindrada}</th>
-// 			<th>${item.velocidad}</th>
-// 			</tr>
-// 			`
-// 			}
-// 		}
-// 	}
-// }
-
-
-
-// $("#btnJson").click (mostrarJson);
-
-// function mostrarJson(){
-
-// 	$("#ajax").fadeIn();
-// }
+// //wow
+new WOW().init();

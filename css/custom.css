@@ -1,24 +1,33 @@
 html {
     font-size: 62.5%;
 }
+
 body {
     background-color: #f5f3f3
+}
+
+body{
+    margin: 0;
 }
 h1 {
     text-align: center;
 }
+
 h2 {
     font-size: 3rem;
 }
+
 h4 {
     font-size: 16px;
     font-weight: 700;
 }
+
 header {
     padding: 20px 0 0 0;
     background: white;
     text-align: center;
 }
+
 @media (min-width: 750px) {
     header {
         text-align: left;
@@ -29,11 +38,13 @@ h2 a {
 	text-decoration: none;
 	color: black;
 }
+
 h2 a:hover {
 	color:#e44e52;
 }
+
 .borrar-producto {
-    background-color: red;
+    background-color: #177e89;
     border-radius: 50%;
     padding: 5px 10px;
     text-decoration: none;
@@ -46,7 +57,7 @@ h2 a:hover {
 }
 
 .tittle-sport{
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     font-family: monospace, monospace;
     font-size: 3rem;
 }
@@ -54,6 +65,7 @@ h2 a:hover {
 ul {
     list-style: none;
 }
+
 #hero {
     background-image:url(../img/duke.jpeg);
     height: 350px;
@@ -68,15 +80,17 @@ ul {
 #encabezado {
     margin: 30px 0;
 }
+
 .encabezado {
 	color: black;
     background-color: #e1e1e1;
     font-weight: 900;
 }
+
 .submenu {
     position: relative;
     cursor: pointer;
-
+    
 }
 
 .submenu #carrito{
@@ -93,9 +107,11 @@ ul {
     padding: 20px;
     min-width: 300px;
 }
+
 tbody img {
 	width: 100%;
 }
+
 .vacio {
     padding: 10px;
     background-color: crimson;
@@ -103,22 +119,26 @@ tbody img {
     border-radius: 10px;
     color: white;
 }
+
 .contenido-hero {
     margin-top: 80px;
     color: white;
 }
+
 .contenido-hero form {
     position: relative;
     margin-bottom: 0;
 }
+
 .contenido-hero form #buscador {
     height: 50px;
     margin-bottom: 0;
 }
+
 .contenido-hero form .submit-buscador {
 	color: white;
-	background-color: #e44e52;
-	border-color: #e44e52;
+	background-color: #e26f22;
+	border-color: #e26f22;
     height: 100%;
 	margin-top: 1rem;
 	padding: .25rem 2rem;
@@ -129,6 +149,7 @@ tbody img {
     margin:0;
     color: white;
 }
+
 .icono {
     background-repeat: no-repeat;
     background-position: left center;
@@ -137,6 +158,7 @@ tbody img {
     margin-bottom: 40px;
     text-align: center;
 }
+
 @media (min-width: 750px) {
     .icono {
         margin-bottom:0;
@@ -179,11 +201,19 @@ tbody img {
 
 .info-card  {
     padding: 10px 20px;
+    position: relative;
 }
 
+/* colores botones */
+
 a.agregar-carrito {
-	background-color: #e26f22!important;
-	border-color: #e26f22!important;
+	background-color: #177e89!important;
+	border-color: #177e89!important;
+}
+
+a.agregar-carrito:hover {
+    background-color: #3f828a!important;
+    border-color: #3f828a!important;
 }
 
 a.caracteristicas{
@@ -197,6 +227,17 @@ a.caracteristicas{
 	border-color: #e26f22!important;
 }
 
+.btn-carac:hover{
+    background-color: #f07d31!important;
+	border-color: #f07d31!important;
+
+}
+a.agregar-marcas{
+    background-color: #e26f22!important;
+	border-color: #e26f22!important;
+}
+
+/* card */
 .fondo-data{
 text-align: center;
 }
@@ -216,6 +257,16 @@ text-align: center;
     font-weight: 700;
     font-size: 22px;
 }
+.card{
+    transition: all 0.25s;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover{
+    transform: translateY(-8px);
+}
+
+/* caracteristicas motos */
 
 #ducattiCaracteristicas{
     display:none;
@@ -241,6 +292,89 @@ text-align: center;
     display:none;
 }
 
+/* producto añadido */
+
+.añadido{
+    position: absolute;
+    transform: translate(-282px, -174px);
+    display: none; 
+    color: #177e89;
+}
+
+#tarjeta{
+    display: none;
+}
+
+
+#img-carrito{  
+    transition: 2s;  
+    box-shadow:rgb(54,54,54);
+    animation: movimiento 3s ease-in-out infinite;
+}
+
+@keyframes movimiento{
+        0%{
+                    transform: translate(0) translateZ(0)
+        }
+        50%{
+        
+            transform: translateY(10px) translateZ(0)
+        }
+        to{transform: translate(0) translateZ(0)}
+}
+
+/* modal compra */
+button {
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    padding: 1px 20px;
+}
+
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;  
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal h1 {
+    margin: 0;
+}
+
+.modal p {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+/*ajax*/
+
 #marcas{
     display:none;
 }
@@ -252,5 +386,97 @@ text-align: center;
 
 #ajax{
     display: none;
+}
+
+#btnJson{
+    margin-top: 30px;
+}
+
+/* footer social networks*/
+
+.footer{
+    display: flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.footer__socialNetworks a{
+    display: inline-flex;
+    font-size: 3rem;
+    color: #000;
+    height: 48px;
+    width: 48px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 0 6px;
+    margin-top: 40px;
+    transition: transform 0.5s;
+}
+
+.footer__socialNetworks .fc:hover {
+    transform: scale(1.3);
+    color: #3b5998
+}
+
+.footer__socialNetworks .ig:hover {
+    transform: scale(1.3);
+    color: #bc2a8d
+}
+
+.footer__socialNetworks .tw:hover {
+    transform: scale(1.3);
+    color: #00acee
+}
+
+.footer__socialNetworks .yt:hover {
+    transform: scale(1.3);
+    color: #c4302b
+}
+
+.footer__text{
+    padding-bottom: 40px;
+    font-size: 2rem;
+    text-align: center;
+    color: #000;
+}
+
+.totales{
+    margin-top: 20px;
+}
+
+#ajax{
+    text-align: center;
+    align-items: center;
+
+}
+
+.lista{
+    text-align: center;
+    align-content: center;
+}
+
+/* whatsap */
+.float {
+	position: fixed;
+	width: 2em;
+	height: 2em;
+	bottom: 1em;
+	right: 1em;
+	background-color: #25d366;
+	color: #FFF;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 2em;
+	box-shadow: 2px 2px 3px #999;
+	z-index: 100;
+}
+.my-float {
+	margin-top: .5em;
+}
+.iconWhatsapp {
+	color: green;
+	font-size: 4em;
 }
 

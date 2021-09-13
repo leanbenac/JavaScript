@@ -5,12 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Carrito</title>
+	<title>Carrito de Motos</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/custom.css">
-
 </head>
 
 <body><!--comienza header-->
@@ -24,7 +23,7 @@
 				<div class="two columns u-pull-right" id="myCart">
 					<ul>
 						<li class="submenu"  >
-							<img src="img/carrito1.png" id="img-carrito" >
+							<img class="animated bounceInRight" src="img/carrito1.png">
 							<div id="carrito" class="carro">
 								<table id="lista-carrito" class="u-full-width">
 									<thead>
@@ -37,36 +36,48 @@
 										</tr>
 									</thead>
 									<tbody>
-										
+									
 									</tbody>
-									<!-- <tr>
+									<tr class="totales">
 										<th>Precio</th>
 										<th>Total</th>
-										<th></tr>
-										
-									</tr> -->
+										<th>
+											<p id="total"></p>
+										</th>
+									</tr>
 								</table>
-								<a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+								<a id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+								<a id="open" class="button button-comprar u-full-width">Confirmar Compra</a>
 							</div>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</header><!--termina header-->
+	</header>
+	<div id="modal_container" class="modal-container">
+		<div class="modal">
+		<h1>Gracias por su compra</h1>
+		<p>
+			Garantia por 1 año 0 12.000km.
+		</p>
+		<button id="close">Cerrar</button>
+		</div>
+	</div>
+	<!--termina header-->
 
-	
+	<!--comienza main-->
 	<main>
 		<div id="hero">
 			<div class="container">
 				<div class="row">
 					<div class="six columns">
 						<div class="contenido-hero">
-							<h2 >Search ​your motorcycle</h2>
+							<h2>Buscá tu Motocicleta</h2>
 							<form id="formulario">
 								<input type="search" class="search u-full-width" id="buscador"
 									placeholder="Ingresa su marca">
-								<input class="submit-buscador" type="submit" value="Buscar">
+								<!-- <input class="submit-buscador" type="submit" value="Buscar"> -->
 							</form>
 						</div>
 					</div>
@@ -75,16 +86,17 @@
 		</div> 
 	
 		<h1 class="tittle-sport">Sport Motorcycle</h1>
+
 		<div id="lista-productos" class="container">
 			
 					<!--card ducatti-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.0s" id="card-container" >
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.0s" id="card-container" >
 				<img src="img/ducatti.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="ducatti">
 					<h4>Ducatti</h4>
 					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$200.000 <span class="u-pull-right ">$180000</span></p>
+					<p class="precio">$200.000 <span class="u-pull-right ">180000</span></p>
 					<a id="btnMoto1" class="u-full-width button-primary button input btn-carac" data-id="1">Ver caracteristicas</a>
 				</div>
 				<div class="info-card fondo-data" id="ducattiCaracteristicas">
@@ -94,17 +106,18 @@
 					<p>Cilindrada 1000cc.</p>
 					<p>Velocidad 300km/h.</p>
 					<p>$180.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar al carro</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-ducatti" data-id="1">Agregar al carrito</a>
+					<a class="u-full-width button-primary añadido añadir-ducatti">Añadido al carrito</a>
 				</div>
 			</div> 
 					<!--card honda-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.2s" id="card-container">
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.2s" id="card-container">
 				<img src="img/principal-honda-cbr-150R.jpeg" class="imagen-producto u-full-width" >
 				<div class="info-card" id="honda">
 					<h4>Honda</h4>
 					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$250.000 <span class="u-pull-right ">$225000</span></p>
+					<p class="precio">$250.000 <span class="u-pull-right ">225000</span></p>
 					<a id="btnMoto2" class="u-full-width button-primary button input info-cara btn-carac" data-id="2">Ver caracteristicas</a>
 				</div>
 
@@ -115,18 +128,19 @@
 					<p>Cilindrada 1200cc.</p>
 					<p>Velocidad 400km/h.</p>
 					<p>$225.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar al carro</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-honda" data-id="2">Agregar al carro</a>
+					<a class="u-full-width button-primary añadido añadir-honda" data-id="2">Añadido al carrito</a>
 				</div>
 			</div>
 					<!--card bmw-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.4s" id="card-container">
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.4s" id="card-container">
 				<img src="img/bmw.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="bmw">
 					<h4>BMW</h4>
 					<p>Sport Motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$210.000 <span class="u-pull-right ">$189000</span></p>
-					<a id="btnMoto3"	class="u-full-width button-primary button input btn-carac" data-id="3">Agregar Al Carrito</a>
+					<p class="precio">$210.000 <span class="u-pull-right ">189000</span></p>
+					<a id="btnMoto3"	class="u-full-width button-primary button input btn-carac" data-id="3">Ver caracteristicas</a>
 				</div>
 
 				<div class="info-card fondo-data" id="bmwCaracteristicas">
@@ -136,19 +150,19 @@
 					<p>Cilindrada 1100cc.</p>
 					<p>Velocidad 350km/h.</p>
 					<p>$189.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al carrito</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-bmw" data-id="3">Agregar Al carrito</a>
+					<a class="u-full-width button-primary añadido añadir-bmw">Añadido al carrito</a>
 				</div>
 			</div> 
 					<!--card ktm-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.0s" id="card-container">
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.0s" id="card-container">
 				<img src="img/ktm.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="ktm">
 					<h4>KTM</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$180.000 <span class="u-pull-right ">$162000</span></p>
-					<a  id="btnMoto4" class="u-full-width button-primary button input btn-carac" data-id="4">Agregar
-						Al Carrito</a>
+					<p class="precio">$180.000 <span class="u-pull-right ">162000</span></p>
+					<a  id="btnMoto4" class="u-full-width button-primary button input btn-carac" data-id="4">Ver caracteristicas</a>
 				</div>
 
 				<div class="info-card fondo-data" id="ktmCaracteristicas">
@@ -158,19 +172,19 @@
 					<p>Cilindrada 800cc.</p>
 					<p>Velocidad 280km/h.</p>
 					<p>$162.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-ktm" data-id="3">Agregar al carrito</a>
+					<a class="u-full-width button-primary añadido añadir-ktm">Añadido al carrito</a>
 				</div>
 			</div>
 					<!--card benelli-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.2s" id="card-container">
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.2s" id="card-container">
 				<img src="img/benelli.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="benelli">
 					<h4>Benelli</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$170.000 <span class="u-pull-right ">$153000</span></p>
-					<a id="btnMoto5" class="u-full-width button-primary button input btn-carac" data-id="5">Agregar
-						Al Carrito</a>
+					<p class="precio">$170.000 <span class="u-pull-right ">153000</span></p>
+					<a id="btnMoto5" class="u-full-width button-primary button input btn-carac" data-id="5">Ver caracteristicas</a>
 				</div>
 
 				<div class="info-card fondo-data" id="benelliCaracteristicas">
@@ -180,19 +194,19 @@
 					<p>Cilindrada 700cc</p>
 					<p>Velocidad 270km/h.</p>
 					<p>$153.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-benelli" data-id="3">Agregar al carrito</a>
+					<a class="u-full-width button-primary añadido añadir-benelli">Añadido al carrito</a>
 				</div>
 			</div>
 					<!--card yamaha-->
-			<div class="card wow animated fadeInUp" data-wow-delay="0.4s" id="card-container">
+			<div class="card wow animated fadeInUp style_card" data-wow-delay="0.4s" id="card-container">
 				<img src="img/yamaha.jpeg" class="imagen-producto u-full-width">
 				<div class="info-card" id="yamaha">
 					<h4>Yamaha</h4>
 					<p>Sport motorcycle</p>
 					<img src="img/estrellas.png">
-					<p class="precio">$190.000 <span class="u-pull-right ">$171000</span></p>
-					<a id="btnMoto6" class="u-full-width button-primary button input btn-carac" data-id="6">Agregar
-						Al Carrito</a>
+					<p class="precio">$190.000 <span class="u-pull-right ">171000</span></p>
+					<a id="btnMoto6" class="u-full-width button-primary button input btn-carac" data-id="6">Ver caracteristicas</a>
 				</div>
 
 				<div class="info-card fondo-data" id="yamahaCaracteristicas">
@@ -202,34 +216,54 @@
 					<p>Cilindrada 900cc.</p>
 					<p>Velocidad 290km/h.</p>
 					<p>$171.000</p>
-					<a class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carro</a>
+					<a class="u-full-width button-primary button input agregar-carrito agregar-yamaha" data-id="3">Agregar al carrito</a>
+					<a class="u-full-width button-primary añadido añadir-yamaha">Añadido al carrito</a>
 				</div>
 			</div>
 		</div>
 
-		<a id="btnJson" class="u-full-width button-primary button input agregar-carrito" data-id="3">JSON</a>
-
-
-			<table id="ajax">
-			<thead>
-				<tr>
+		
+		<a id="btnJson" class="u-full-width button-primary button input agregar-marcas" >Marcas que trabajamos</a>
+		<table id="ajax"> <!--ajax-->
+			<tfooter>
+				<tr class="lista">
 					<th>Marca</th>
 					<th>Cilindrada</th>
 					<th>Velocidad</th>
 				</tr>
-			</thead>
+			</tfooter>
 			<tbody id="res">
 					
 			</tbody>
-			</table>
-		<!-- <a id="btnJson" class="u-full-width button-primary button input agregar-carrito">AJAX</a> -->
-		<!-- <div id="marcas"></div> -->
-
+		</table>
 	</main>
+	<!--termina main-->
 
+	<!--Whatsapp-->
+	<a href="https://api.whatsapp.com/send?phone=541133369420&text=Hola, que tal? quisiera saber cuales son los medios de pago."
+	class="float" id="img-carrito" target="_blank"><i class="fa fa-whatsapp my-float animate__animated animate__pulse animate__infinite"></i></a>
 
+	<!--Social Networks-->
+	<footer class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 wow animated zoomIn" style="animation-delay: 0.4s">
+				<ul class="footer footer__socialNetworks">
+					<li><i><a class="fc fab fa-facebook facebook" target="about_blank"></a></i></li>
+					<li><i><a class="ig fab fa-instagram instagram" target="about_blank"></a></i></li>
+					<li><i><a class="tw fab fa-twitter-square" target="about_blank"></a></i></li>
+					<li><i><a class="yt fab fa-youtube youtube" target="about_blank"></a></i></li>                
+				</ul>
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h2 class="footer__text">JavaScript © 2021<br>Developed by Leandro Benac</h2>
+			</div>
+		</div>
+	</footer>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/Dom.js" type="module"></script>
